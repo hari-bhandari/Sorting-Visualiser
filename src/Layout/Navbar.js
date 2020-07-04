@@ -1,17 +1,17 @@
 import React from 'react';
 import './Navbar.css'
-const Navbar = () => {
+const Navbar = ({mergeSort,resetArray}) => {
     return (
         <header>
         <div className="container">
-            <h1 className="logo"></h1>
+            <h1 className="logo">hSorter</h1>
 
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Pricing</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li onClick={resetArray}>reset Array</li>
+                    <li onClick={mergeSort}>Merge Sort</li>
+                    <li>Quick Sort </li>
+                    <li>Bubble Sort</li>
                 </ul>
             </nav>
         </div>

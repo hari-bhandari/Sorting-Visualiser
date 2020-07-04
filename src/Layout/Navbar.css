@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
 body {
     margin: 0;
-    background: #222;
+    background: #fafafa;
     font-family: 'Work Sans', sans-serif;
-    font-weight: 800;
+    font-weight: 900;
 }
 
 .container {
@@ -12,7 +12,7 @@ body {
 }
 
 header {
-    background: #55d6aa;
+    background: #c9d9d5;
 }
 
 header::after {
@@ -51,11 +51,11 @@ nav a {
     font-size: 14px;
 }
 
-nav a:hover {
-    color: #000;
+nav li:hover {
+    color: #080be7;
 }
 
-nav a::before {
+nav li::before {
     content: '';
     display: block;
     height: 5px;
@@ -68,6 +68,6 @@ nav a::before {
     transition: all ease-in-out 250ms;
 }
 
-nav a:hover::before {
+nav li:hover::before {
     width: 100%;
 }

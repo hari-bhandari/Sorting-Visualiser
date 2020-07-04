@@ -1,0 +1,15 @@
+
+.center{
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    height: 60vh;
+}
+
+#range-slide{
+    width: 80px; height: 500px;
+    -webkit-appearance: slider-vertical;
+    writing-mode: bt-lr;
+    margin: 30vh auto;
+    display: block;
+}

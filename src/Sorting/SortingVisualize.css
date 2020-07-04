@@ -1,13 +1,26 @@
 
 .array-container {
     position: absolute;
-    left: 100px;
+    left: 300px;
+    text-align: center;
+    margin-top: 10px;
     /* top: 100px; */
 }
 
 .array-bar {
     width: 2px;
     display: inline-block;
-    margin: 0 1px;
-    background-color:deeppink;
+    border-top-left-radius:25%;
+    border-top-right-radius:25%;
+    background-color: #ED553B;
+}
+.rangeSlider{
+    position: absolute;
+    left: 60px;
+    top:0px
+}
+.name{
+    position: absolute;
+    top:260px;
+    left:70px
 }
