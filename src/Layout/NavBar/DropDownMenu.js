@@ -2,17 +2,11 @@ import React, {useEffect, useRef, useState, useContext} from 'react';
 import {CSSTransition} from "react-transition-group";
 import {ReactComponent as ChevronIcon} from "../icons/chevron.svg";
 import AlgoContext from '../../context/Algorithms/algoContext'
-import {getBubbleSortAnimations} from "../../SortingAlgorithms/BubbleSort";
 
 
-const DropDownMenu = () => {
+const DropDownMenu = ({open,setOpen}) => {
     const algoContext = useContext(AlgoContext)
-    const {
-        bubbleSort,
-        quickSort, animationSpeed,
-        primaryColour,
-        secondaryColour,array
-    } = algoContext
+    const {setCurrentlySelected} = algoContext
 
     const [activeMenu, setActiveMenu] = useState('main');
     const [menuHeight, setMenuHeight] = useState(null);
@@ -29,7 +23,15 @@ const DropDownMenu = () => {
 
     function DropdownItem(props) {
         return (
-            <a href="#" className="menu-item"  onClick={props.onClickFunction()
+            <a href="#" className="menu-item" onClick={() => {
+                if (props.data){
+                    setCurrentlySelected(props.data)
+                    setOpen(false)
+
+                }
+
+
+            }
             }>
                 <span className="icon-button">{props.leftIcon}</span>
                 {props.children}
@@ -37,36 +39,7 @@ const DropDownMenu = () => {
             </a>
         );
     }
-    // const bubbleSort = () => {
-    //     const [animations, sortArray] = getBubbleSortAnimations(array);
-    //     console.log(animations)
-    //     for (let i = 0; i < animations.length; i++) {
-    //         const isColorChange = (i % 4 === 0) || (i % 4 === 1);
-    //         const arrayBars = document.getElementsByClassName('array-bar');
-    //         if (isColorChange === true) {
-    //             const color = (i % 4 === 0) ? secondaryColour : primaryColour;
-    //             const [barOneIndex, barTwoIndex] = animations[i];
-    //             const barOneStyle = arrayBars[barOneIndex].style;
-    //             const barTwoStyle = arrayBars[barTwoIndex].style;
-    //             setTimeout(() => {
-    //                 barOneStyle.backgroundColor = color;
-    //                 barTwoStyle.backgroundColor = color
-    //
-    //             }, i * animationSpeed);
-    //         } else {
-    //             const [barIndex, newHeight] = animations[i];
-    //             if (barIndex === -1) {
-    //                 continue;
-    //             }
-    //             const barStyle = arrayBars[barIndex].style;
-    //             setTimeout(() => {
-    //                 barStyle.height = `${newHeight}px`;
-    //             }, i * animationSpeed);
-    //         }
-    //     }
-    //     // this.setState({array: sortArray})
-    //
-    // }
+
     return (
         <div className="dropdown" style={{height: menuHeight}} ref={dropdownRef}>
 
@@ -80,30 +53,37 @@ const DropDownMenu = () => {
                     <DropdownItem
                         leftIcon={"BS"}
                         rightIcon={<ChevronIcon/>}
-                        onClickFunction={bubbleSort}
+                        data={"Bubble Sort"}
                     >
                         Bubble Sort
                     </DropdownItem>
                     <DropdownItem
                         leftIcon={"QS"}
                         rightIcon={<ChevronIcon/>}
-                        onClickFunction={bubbleSort}
+                        data={"Quick Sort"}
                     >
                         Quick Sort
                     </DropdownItem>
                     <DropdownItem
                         leftIcon={"MS"}
                         rightIcon={<ChevronIcon/>}
-                        onClickFunction={bubbleSort}
+                        data={"Merge Sort"}
                     >
                         Merge Sort
                     </DropdownItem>
                     <DropdownItem
-                        leftIcon={"A"}
+                        leftIcon={"SS"}
                         rightIcon={<ChevronIcon/>}
-                        onClickFunction={bubbleSort}
+                        data={"Selection Sort"}
                     >
-                        Bubble Sort
+                        Selection Sort
+                    </DropdownItem>
+                    <DropdownItem
+                        leftIcon={"SS"}
+                        rightIcon={<ChevronIcon/>}
+                        data={"Insertion Sort"}
+                    >
+                        Insertion Sort
                     </DropdownItem>
 
                 </div>

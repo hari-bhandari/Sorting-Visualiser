@@ -1,16 +1,18 @@
 import React, {useReducer} from "react";
 import algoContext from "./algoContext";
 import algoReducer from "./algoReducer"
-import {BUBBLE_SORT, INSERTION_SORT, MERGE_SORT, QUICK_SORT, RESET_ARRAY, SELECTION_SORT, SET_SIZE} from '../types'
+import {RESET_ARRAY, SET_ANIMATION_SPEED, SET_CURRENT, SET_OPEN, SET_SIZE} from '../types'
 
 const AlgoState = props => {
 
     const initialState = {
         array: [],
         size: 30,
-        animationSpeed: 40,
-        primaryColour: 'turquoise',
-        secondaryColour: 'red'
+        animationSpeed: 20,
+        primaryColour: '#ED553B',
+        secondaryColour: 'white',
+        currentlySelected:'Bubble Sort',
+        open:false
 
     }
     const [state, dispatch] = useReducer(algoReducer, initialState)
@@ -20,6 +22,18 @@ const AlgoState = props => {
             type: RESET_ARRAY
         })
     }
+    const setOpen=(value)=>{
+        dispatch({
+            type:SET_OPEN,
+            payload:value
+        })
+    }
+    const setCurrentlySelected=(value)=>{
+        dispatch({
+            type:SET_CURRENT,
+            payload:value
+        })
+    }
     const setSize = (size) => {
         dispatch({
             type: SET_SIZE,
@@ -27,34 +41,14 @@ const AlgoState = props => {
         })
 
     }
-    const mergeSort = () => {
-        dispatch({
-            type: MERGE_SORT
-        })
+    const setAnimationSpeed=(val)=>{
+        dispatch(
+            {
+                type:SET_ANIMATION_SPEED,
+                payload:-1*val
+            }
+        )
     }
-    const bubbleSort = () => {
-        dispatch({
-            type: BUBBLE_SORT
-        })
-    }
-
-    const quickSort = () => {
-        dispatch({
-            type: QUICK_SORT
-        })
-    }
-
-    const insertionSort = () => {
-        dispatch({
-            type: INSERTION_SORT
-        })
-    }
-    const selectionSort = () => {
-        dispatch({
-            type: SELECTION_SORT
-        })
-    }
-
 
     //get 1 bootcamp
     return (
@@ -64,7 +58,11 @@ const AlgoState = props => {
             animationSpeed: state.animationSpeed,
             primaryColour:state.primaryColour,
             secondaryColour:state.secondaryColour,
-            resetArray, setSize, mergeSort, bubbleSort, quickSort, selectionSort, insertionSort
+            currentlySelected:state.currentlySelected,
+            open:state.open,
+            setOpen,
+            setCurrentlySelected,
+            resetArray, setSize,setAnimationSpeed
         }}>{props.children}</algoContext.Provider>
     )
 

@@ -1,11 +1,10 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useContext, useEffect, useRef, useState} from 'react';
 import {CSSTransition} from "react-transition-group";
-import {ReactComponent as CogIcon} from "../icons/cog.svg";
-import {ReactComponent as ChevronIcon} from "../icons/chevron.svg";
-import {ReactComponent as ArrowIcon} from "../icons/arrow.svg";
-import {ReactComponent as BoltIcon} from "../icons/bolt.svg";
+import AlgoContext from "../../context/Algorithms/algoContext";
 
 const SettingDropDown = () => {
+    const algoContext = useContext(AlgoContext)
+    const {animationSpeed,setAnimationSpeed,size,setSize,resetArray} = algoContext
     const [activeMenu, setActiveMenu] = useState('main');
     const [menuHeight, setMenuHeight] = useState(null);
     const dropdownRef = useRef(null);
@@ -40,10 +39,15 @@ const SettingDropDown = () => {
                 onEnter={calcHeight}>
                 <div className="menu">
                     <DropdownItem rightIcon={'Size'}>
-                        <input type="range" min="1" max="100" value="50" className="slider" id="myRange"/>
+                        <input type="range" min="3" max="60" value={size} step={1} className="slider" onChange={(e)=>{
+                            setSize(e.target.value)
+                            resetArray()
+                        }} defaultValue={size} value={size} id="myRange"/>
                     </DropdownItem>
                     <DropdownItem rightIcon={'Speed'}>
-                        <input type="range" min="1" max="100" value="50" className="slider" id="myRange"/>
+                        <input type="range" min="1" max="28" value={animationSpeed} step={1} className="slider" onChange={(e)=>{
+                            setAnimationSpeed(e.target.value)
+                        }} defaultValue={animationSpeed} value={animationSpeed}/>
                     </DropdownItem>
                     <DropdownItem>
 
