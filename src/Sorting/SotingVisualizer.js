@@ -7,13 +7,11 @@ import{getQuickSortAnimations} from '../SortingAlgorithms/QuickSort'
 import{getSelectionSortAnimations} from '../SortingAlgorithms/SelectionSort'
 
 import './SortingVisualize.css'
-import Navbar from "../Layout/Navbar";
-import Slider from "../Layout/Slider";
 const ANIMATION_SPEED_MS = 3;
 
 const SotingVisualizer = () => {
     const algoContext=useContext(AlgoContext)
-    const {resetArray,array,size,setSize,mergeSort}=algoContext
+    const {resetArray,array,size}=algoContext
     // Change this value for the number of size (value) in the array.
 
 
@@ -38,29 +36,30 @@ const SotingVisualizer = () => {
             return -0.038709677419355*size + 13
         }
     }
-    // const mergeSort=()=>{
-    //     const animations = getMergeSortAnimations(array);
-    //     for (let i = 0; i < animations.length; i++) {
-    //         const arrayBars = document.getElementsByClassName('array-bar');
-    //         const isColorChange = i % 3 !== 2;
-    //         if (isColorChange) {
-    //             const [barOneIdx, barTwoIdx] = animations[i];
-    //             const barOneStyle = arrayBars[barOneIdx].style;
-    //             const barTwoStyle = arrayBars[barTwoIdx].style;
-    //             const color = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
-    //             setTimeout(() => {
-    //                 barOneStyle.backgroundColor = color;
-    //                 barTwoStyle.backgroundColor = color;
-    //             }, i * ANIMATION_SPEED_MS);
-    //         } else {
-    //             setTimeout(() => {
-    //                 const [barOneIdx, newHeight] = animations[i];
-    //                 const barOneStyle = arrayBars[barOneIdx].style;
-    //                 barOneStyle.height = `${newHeight}px`;
-    //             }, i * ANIMATION_SPEED_MS);
-    //         }
-    //     }
-    // }
+    const mergeSort=()=>{
+        const animations = getMergeSortAnimations(array);
+        for (let i = 0; i < animations.length; i++) {
+            const arrayBars = document.getElementsByClassName('array-bar');
+            const isColorChange = i % 3 !== 2;
+            if (isColorChange) {
+                const [barOneIdx, barTwoIdx] = animations[i];
+                const barOneStyle = arrayBars[barOneIdx].style;
+                const barTwoStyle = arrayBars[barTwoIdx].style;
+                const color = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
+                setTimeout(() => {
+                    barOneStyle.backgroundColor = color;
+                    barTwoStyle.backgroundColor = color;
+
+                }, i * ANIMATION_SPEED_MS);
+            } else {
+                setTimeout(() => {
+                    const [barOneIdx, newHeight] = animations[i];
+                    const barOneStyle = arrayBars[barOneIdx].style;
+                    barOneStyle.height = `${newHeight}px`;
+                }, i * ANIMATION_SPEED_MS);
+            }
+        }
+    }
     const bubbleSort=()=> {
         const [animations,sortArray] = getBubbleSortAnimations(array);
         console.log(animations)
@@ -70,6 +69,39 @@ const SotingVisualizer = () => {
             if(isColorChange === true) {
                 const color = (i % 4 === 0) ? SECONDARY_COLOR : PRIMARY_COLOR;
                 const [barOneIndex, barTwoIndex] = animations[i];
+                const barOneStyle = arrayBars[barOneIndex].style;
+                const barTwoStyle = arrayBars[barTwoIndex].style;
+                setTimeout(() => {
+                    barOneStyle.backgroundColor = color;
+                    barTwoStyle.backgroundColor = color
+
+                },i * ANIMATION_SPEED_MS);
+            }
+            else {
+                const [barIndex, newHeight] = animations[i];
+                if (barIndex === -1) {
+                    continue;
+                }
+                const barStyle = arrayBars[barIndex].style;
+                setTimeout(() => {
+                    barStyle.height = `${newHeight}px`;
+                },i * ANIMATION_SPEED_MS);
+            }
+        }
+        // this.setState({array: sortArray})
+
+    }
+    const quickSort=()=> {
+        const [animations,sortArray] = getQuickSortAnimations(this.state.array);
+        for (let i = 0; i < animations.length - 1; i++) {
+            const isColorChange = (i % 6 === 0) || (i % 6 === 1);
+            const arrayBars = document.getElementsByClassName('array-bar');
+            if(isColorChange === true) {
+                const color = (i % 6 === 0) ? SECONDARY_COLOR : PRIMARY_COLOR;
+                const [barOneIndex, barTwoIndex] = animations[i];
+                if(barOneIndex === -1) {
+                    continue;
+                }
                 const barOneStyle = arrayBars[barOneIndex].style;
                 const barTwoStyle = arrayBars[barTwoIndex].style;
                 setTimeout(() => {
@@ -89,104 +121,67 @@ const SotingVisualizer = () => {
             }
         }
         // this.setState({array: sortArray})
-
     }
-    // const quickSort=()=> {
-    //     const [animations,sortArray] = getQuickSortAnimations(this.state.array);
-    //     for (let i = 0; i < animations.length - 1; i++) {
-    //         const isColorChange = (i % 6 === 0) || (i % 6 === 1);
-    //         const arrayBars = document.getElementsByClassName('array-bar');
-    //         if(isColorChange === true) {
-    //             const color = (i % 6 === 0) ? SECONDARY_COLOR : PRIMARY_COLOR;
-    //             const [barOneIndex, barTwoIndex] = animations[i];
-    //             if(barOneIndex === -1) {
-    //                 continue;
-    //             }
-    //             const barOneStyle = arrayBars[barOneIndex].style;
-    //             const barTwoStyle = arrayBars[barTwoIndex].style;
-    //             setTimeout(() => {
-    //                 barOneStyle.backgroundColor = color;
-    //                 barTwoStyle.backgroundColor = color;
-    //             },i * ANIMATION_SPEED_MS);
-    //         }
-    //         else {
-    //             const [barIndex, newHeight] = animations[i];
-    //             if (barIndex === -1) {
-    //                 continue;
-    //             }
-    //             const barStyle = arrayBars[barIndex].style;
-    //             setTimeout(() => {
-    //                 barStyle.height = `${newHeight}px`;
-    //             },i * ANIMATION_SPEED_MS);
-    //         }
-    //     }
-    //     // this.setState({array: sortArray})
-    // }
-    //
-    // const insertionSort=()=> {
-    //     const [animations,sortArray] = getInsertionSortAnimations(this.state.array);
-    //     for (let i = 0; i < animations.length; i++) {
-    //         const isColorChange = (animations[i][0] === "comparision1") || (animations[i][0] === "comparision2");
-    //         const arrayBars = document.getElementsByClassName('array-bar');
-    //         if(isColorChange === true) {
-    //             const color = (animations[i][0] === "comparision1") ? SECONDARY_COLOR : PRIMARY_COLOR;
-    //             const [temp, barOneIndex, barTwoIndex] = animations[i];
-    //             const barOneStyle = arrayBars[barOneIndex].style;
-    //             const barTwoStyle = arrayBars[barTwoIndex].style;
-    //             setTimeout(() => {
-    //                 barOneStyle.backgroundColor = color;
-    //                 barTwoStyle.backgroundColor = color;
-    //             },i * ANIMATION_SPEED_MS);
-    //         }
-    //         else {
-    //             const [temp, barIndex, newHeight] = animations[i];
-    //             const barStyle = arrayBars[barIndex].style;
-    //             setTimeout(() => {
-    //                 barStyle.height = `${newHeight}px`;
-    //             },i * ANIMATION_SPEED_MS);
-    //         }
-    //     }
-    //     // this.setState({array: sortArray})
-    // }
-    // const selectionSort=()=> {
-    //     const [animations,sortArray] = getSelectionSortAnimations(this.state.array);
-    //     for (let i = 0; i < animations.length; i++) {
-    //         const isColorChange = (animations[i][0] === "comparision1") || (animations[i][0] === "comparision2");
-    //         const arrayBars = document.getElementsByClassName('array-bar');
-    //         if(isColorChange === true) {
-    //             const color = (animations[i][0] === "comparision1") ? SECONDARY_COLOR : PRIMARY_COLOR;
-    //             const [temp, barOneIndex, barTwoIndex] = animations[i];
-    //             const barOneStyle = arrayBars[barOneIndex].style;
-    //             const barTwoStyle = arrayBars[barTwoIndex].style;
-    //             setTimeout(() => {
-    //                 barOneStyle.backgroundColor = color;
-    //                 barTwoStyle.backgroundColor = color;
-    //             },i * ANIMATION_SPEED_MS);
-    //         }
-    //         else {
-    //             const [temp, barIndex, newHeight] = animations[i];
-    //             const barStyle = arrayBars[barIndex].style;
-    //             setTimeout(() => {
-    //                 barStyle.height = `${newHeight}px`;
-    //             },i * ANIMATION_SPEED_MS);
-    //         }
-    //     }
-    // }
+
+    const insertionSort=()=> {
+        const [animations,sortArray] = getInsertionSortAnimations(this.state.array);
+        for (let i = 0; i < animations.length; i++) {
+            const isColorChange = (animations[i][0] === "comparision1") || (animations[i][0] === "comparision2");
+            const arrayBars = document.getElementsByClassName('array-bar');
+            if(isColorChange === true) {
+                const color = (animations[i][0] === "comparision1") ? SECONDARY_COLOR : PRIMARY_COLOR;
+                const [temp, barOneIndex, barTwoIndex] = animations[i];
+                const barOneStyle = arrayBars[barOneIndex].style;
+                const barTwoStyle = arrayBars[barTwoIndex].style;
+                setTimeout(() => {
+                    barOneStyle.backgroundColor = color;
+                    barTwoStyle.backgroundColor = color;
+                },i * ANIMATION_SPEED_MS);
+            }
+            else {
+                const [temp, barIndex, newHeight] = animations[i];
+                const barStyle = arrayBars[barIndex].style;
+                setTimeout(() => {
+                    barStyle.height = `${newHeight}px`;
+                },i * ANIMATION_SPEED_MS);
+            }
+        }
+        // this.setState({array: sortArray})
+    }
+    const selectionSort=()=> {
+        const [animations,sortArray] = getSelectionSortAnimations(this.state.array);
+        for (let i = 0; i < animations.length; i++) {
+            const isColorChange = (animations[i][0] === "comparision1") || (animations[i][0] === "comparision2");
+            const arrayBars = document.getElementsByClassName('array-bar');
+            if(isColorChange === true) {
+                const color = (animations[i][0] === "comparision1") ? SECONDARY_COLOR : PRIMARY_COLOR;
+                const [temp, barOneIndex, barTwoIndex] = animations[i];
+                const barOneStyle = arrayBars[barOneIndex].style;
+                const barTwoStyle = arrayBars[barTwoIndex].style;
+                setTimeout(() => {
+                    barOneStyle.backgroundColor = color;
+                    barTwoStyle.backgroundColor = color;
+                },i * ANIMATION_SPEED_MS);
+            }
+            else {
+                const [temp, barIndex, newHeight] = animations[i];
+                const barStyle = arrayBars[barIndex].style;
+                setTimeout(() => {
+                    barStyle.height = `${newHeight}px`;
+                },i * ANIMATION_SPEED_MS);
+            }
+        }
+    }
 
     return (
         <Fragment>
-            <Navbar mergeSort={mergeSort} resetArray={resetArray}/>
-            <div className={"name"}>Size</div>
-            <div className="rangeSlider">
-                <Slider bars={size} setBars={setSize} resetArray={resetArray}/>
-            </div>
             <div className={"array-container"}>
                 {array.map((value, index) => (
                     <div className={"array-bar"} key={index} style={{height: `${value}px`,width:`${WIDTH()}px`,margin:`0 ${WIDTH()/2}px`}}/>
                 ))}
                 <br/>
                 <button onClick={() => {
-                    resetArray()
+                    bubbleSort()
                 }}>Generate New Array
                 </button>
                 <button onClick={() => {
@@ -195,8 +190,8 @@ const SotingVisualizer = () => {
                 </button>
             </div>
         </Fragment>
-    );
-};
+    )
+}
 const arraysAreEqual=(array1,array2)=>{
     if(array1.length!==array2.length) return false
     for(let i=0;i<array1.length;i++){

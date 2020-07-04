@@ -85,6 +85,7 @@ export default (state, action) => {
             for (let i = 0; i < bubbleAnimations.length - 1; i++) {
                 const isColorChange = (i % 6 === 0) || (i % 6 === 1);
                 const arrayBars = document.getElementsByClassName('array-bar');
+                console.log(arrayBars)
                 if(isColorChange === true) {
                     const color = (i % 6 === 0) ? state.secondaryColour : state.primaryColour;
                     const [barOneIndex, barTwoIndex] = quickSortAnimation[i];

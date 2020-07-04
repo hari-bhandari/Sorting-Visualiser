@@ -2,69 +2,69 @@ import React, {useReducer} from "react";
 import algoContext from "./algoContext";
 import algoReducer from "./algoReducer"
 import {BUBBLE_SORT, INSERTION_SORT, MERGE_SORT, QUICK_SORT, RESET_ARRAY, SELECTION_SORT, SET_SIZE} from '../types'
-import {getMergeSortAnimations} from "../../SortingAlgorithms/MergeSort";
 
-const AlgoState= props=>{
+const AlgoState = props => {
 
-    const initialState={
-        array:[],
-        size:30,
-        animationSpeed:40,
-        primaryColour:'turquoise',
-        secondaryColour:'red'
+    const initialState = {
+        array: [],
+        size: 30,
+        animationSpeed: 40,
+        primaryColour: 'turquoise',
+        secondaryColour: 'red'
 
     }
-    const[state,dispatch]=useReducer(algoReducer,initialState)
+    const [state, dispatch] = useReducer(algoReducer, initialState)
     //get one bootCamp
-    const stateArray=[]
-    const resetArray=()=>{
+    const resetArray = () => {
         dispatch({
-            type:RESET_ARRAY
+            type: RESET_ARRAY
         })
     }
-    const setSize=(size)=>{
+    const setSize = (size) => {
         dispatch({
-            type:SET_SIZE,
-            payload:parseInt(size)
+            type: SET_SIZE,
+            payload: parseInt(size)
         })
 
     }
-    const mergeSort=()=>{
+    const mergeSort = () => {
         dispatch({
-            type:MERGE_SORT
+            type: MERGE_SORT
         })
     }
-    const bubbleSort=()=>{
+    const bubbleSort = () => {
         dispatch({
-            type:BUBBLE_SORT
-        })
-    }
-
-    const quickSort=()=>{
-        dispatch({
-            type:QUICK_SORT
+            type: BUBBLE_SORT
         })
     }
 
-    const insertionSort=()=>{
+    const quickSort = () => {
         dispatch({
-            type:INSERTION_SORT
-        })
-    }
-    const selectionSort=()=>{
-        dispatch({
-            type:SELECTION_SORT
+            type: QUICK_SORT
         })
     }
 
+    const insertionSort = () => {
+        dispatch({
+            type: INSERTION_SORT
+        })
+    }
+    const selectionSort = () => {
+        dispatch({
+            type: SELECTION_SORT
+        })
+    }
 
 
     //get 1 bootcamp
-    return(
+    return (
         <algoContext.Provider value={{
-            array:state.array,
-            size:state.size,
-            animationSpeed:state.animationSpeed,resetArray,setSize,mergeSort,bubbleSort,quickSort,selectionSort,insertionSort
+            array: state.array,
+            size: state.size,
+            animationSpeed: state.animationSpeed,
+            primaryColour:state.primaryColour,
+            secondaryColour:state.secondaryColour,
+            resetArray, setSize, mergeSort, bubbleSort, quickSort, selectionSort, insertionSort
         }}>{props.children}</algoContext.Provider>
     )
 

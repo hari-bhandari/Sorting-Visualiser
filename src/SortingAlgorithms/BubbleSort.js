@@ -44,25 +44,3 @@ function arraysAreEqual(firstArray, secondArray) {
     }
     return true;
 }
-// export function quickSort(array) {
-//     let length,pivot
-//     length=array.length
-//     if(length<=1){
-//         return length
-//     }
-//     else{
-//        pivot=array.pop()
-//     }
-//     let itemsGreater=[]
-//     let itemLower=[]
-//     array.forEach((val)=>{
-//         if(val>pivot){
-//             itemsGreater.push(val)
-//         }
-//         else{
-//             itemLower.push(val)
-//         }
-//     })
-//
-//     return quickSort(itemLower)+[pivot]+quickSort(itemsGreater)
-// }
