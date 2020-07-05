@@ -1,7 +1,7 @@
 import React, {useReducer} from "react";
 import algoContext from "./algoContext";
 import algoReducer from "./algoReducer"
-import {RESET_ARRAY, SET_ANIMATION_SPEED, SET_CURRENT, SET_OPEN, SET_SIZE} from '../types'
+import {CUSTOM_ARRAY, RESET_ARRAY, SET_ANIMATION_SPEED, SET_ARRAY_BOX, SET_CURRENT, SET_OPEN, SET_SIZE} from '../types'
 
 const AlgoState = props => {
 
@@ -11,9 +11,16 @@ const AlgoState = props => {
         animationSpeed: 20,
         primaryColour: '#ED553B',
         secondaryColour: 'white',
-        currentlySelected:'Bubble Sort',
-        open:false
+        currentlySelected: 'Bubble Sort',
+        open: false,
+        arrayBox:''
 
+    }
+    const setArrayBox=(array)=>{
+        dispatch({
+            type:SET_ARRAY_BOX,
+            payload:array
+        })
     }
     const [state, dispatch] = useReducer(algoReducer, initialState)
     //get one bootCamp
@@ -22,16 +29,36 @@ const AlgoState = props => {
             type: RESET_ARRAY
         })
     }
-    const setOpen=(value)=>{
+    const setOpen = (value) => {
         dispatch({
-            type:SET_OPEN,
-            payload:value
+            type: SET_OPEN,
+            payload: value
         })
     }
-    const setCurrentlySelected=(value)=>{
+    const customArray = (array) => {
+
+        const arrayList = array.split(' ')
+
+        function func() {
+            arrayList.forEach((val) => {
+                if (isNaN(val)) {
+                    return false
+                }
+            })
+            return true
+        }
+        if(func()){
+            dispatch({
+                type:CUSTOM_ARRAY,
+                payload:arrayList
+            })
+        }
+
+    }
+    const setCurrentlySelected = (value) => {
         dispatch({
-            type:SET_CURRENT,
-            payload:value
+            type: SET_CURRENT,
+            payload: value
         })
     }
     const setSize = (size) => {
@@ -41,11 +68,11 @@ const AlgoState = props => {
         })
 
     }
-    const setAnimationSpeed=(val)=>{
+    const setAnimationSpeed = (val) => {
         dispatch(
             {
-                type:SET_ANIMATION_SPEED,
-                payload:-1*val
+                type: SET_ANIMATION_SPEED,
+                payload: val
             }
         )
     }
@@ -56,13 +83,14 @@ const AlgoState = props => {
             array: state.array,
             size: state.size,
             animationSpeed: state.animationSpeed,
-            primaryColour:state.primaryColour,
-            secondaryColour:state.secondaryColour,
-            currentlySelected:state.currentlySelected,
-            open:state.open,
+            primaryColour: state.primaryColour,
+            secondaryColour: state.secondaryColour,
+            currentlySelected: state.currentlySelected,
+            open: state.open,
+            arrayBox:state.arrayBox,
             setOpen,
             setCurrentlySelected,
-            resetArray, setSize,setAnimationSpeed
+            resetArray, setSize, setAnimationSpeed, customArray,setArrayBox
         }}>{props.children}</algoContext.Provider>
     )
 

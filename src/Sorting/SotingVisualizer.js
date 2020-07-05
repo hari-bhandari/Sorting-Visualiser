@@ -1,4 +1,4 @@
-import React, {Fragment, useEffect, useState,useContext} from 'react';
+import React, {Fragment, useEffect,useContext} from 'react';
 import AlgoContext from "../context/Algorithms/algoContext";
 import {getMergeSortAnimations} from '../SortingAlgorithms/MergeSort';
 import{getBubbleSortAnimations} from '../SortingAlgorithms/BubbleSort'
@@ -15,24 +15,25 @@ const SotingVisualizer = () => {
     // Change this value for the number of size (value) in the array.
 
     const onStart=()=>{
-        if(currentlySelected=='Bubble Sort'){
+        if(currentlySelected==='Bubble Sort'){
             bubbleSort()
         }
-        if(currentlySelected=='Quick Sort'){
+        if(currentlySelected==='Quick Sort'){
             quickSort()
         }
-        if(currentlySelected=='Merge Sort'){
+        if(currentlySelected==='Merge Sort'){
             mergeSort()
         }
-        if(currentlySelected=='Selection Sort'){
+        if(currentlySelected==='Selection Sort'){
             selectionSort()
         }
-        if (currentlySelected=='Insertion Sort'){
+        if (currentlySelected==='Insertion Sort'){
             insertionSort()
         }
     }
     useEffect(()=>{
         resetArray()
+        // eslint-disable-next-line
     },[])
     const WIDTH=()=>{
         if (size < 13) {

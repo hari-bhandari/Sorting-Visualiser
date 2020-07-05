@@ -1,13 +1,8 @@
 import {
-    RESET_ARRAY, SET_ANIMATION_SPEED, SET_CURRENT, SET_OPEN, SET_SIZE
+    CUSTOM_ARRAY,
+    RESET_ARRAY, SET_ANIMATION_SPEED, SET_ARRAY_BOX, SET_CURRENT, SET_OPEN, SET_SIZE
 
 } from '../types'
-import {getMergeSortAnimations} from "../../SortingAlgorithms/MergeSort";
-import {getBubbleSortAnimations} from "../../SortingAlgorithms/BubbleSort";
-import {getQuickSortAnimations} from "../../SortingAlgorithms/QuickSort";
-import {getInsertionSortAnimations} from "../../SortingAlgorithms/InsertionSort";
-import {getSelectionSortAnimations} from "../../SortingAlgorithms/SelectionSort";
-
 export default (state, action) => {
     switch (action.type) {
         case RESET_ARRAY:
@@ -28,6 +23,17 @@ export default (state, action) => {
             return {
                 ...state,
                 size:action.payload
+            }
+        case SET_ARRAY_BOX:
+            return {
+                ...state,
+                arrayBox:action.payload
+            }
+        case CUSTOM_ARRAY:
+            return{
+                ...state,
+                size:action.payload.length,
+                array:action.payload
             }
         case SET_CURRENT:
             return {

@@ -45,13 +45,17 @@ const SettingDropDown = () => {
                         }} defaultValue={size} value={size} id="myRange"/>
                     </DropdownItem>
                     <DropdownItem rightIcon={'Speed'}>
-                        <input type="range" min="1" max="28" value={animationSpeed} step={1} className="slider" onChange={(e)=>{
+                        <input type="range" min="3" max="60" value={animationSpeed} step={1} className="slider" onChange={(e)=>{
                             setAnimationSpeed(e.target.value)
-                        }} defaultValue={animationSpeed} value={animationSpeed}/>
+                            // resetArray()
+                        }} defaultValue={animationSpeed} value={animationSpeed} id="animationSpeed"/>
                     </DropdownItem>
+
                     <DropdownItem>
 
-                        <h1>Reset Array</h1>
+                        <h1 onClick={()=>{
+                            resetArray()
+                        }}>Reset Array</h1>
                     </DropdownItem>
 
                 </div>

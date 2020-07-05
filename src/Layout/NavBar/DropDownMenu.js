@@ -8,7 +8,7 @@ const DropDownMenu = ({open,setOpen}) => {
     const algoContext = useContext(AlgoContext)
     const {setCurrentlySelected} = algoContext
 
-    const [activeMenu, setActiveMenu] = useState('main');
+    const [activeMenu] = useState('main');
     const [menuHeight, setMenuHeight] = useState(null);
     const dropdownRef = useRef(null);
 

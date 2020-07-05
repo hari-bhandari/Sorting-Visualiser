@@ -1,6 +1,5 @@
-import React, {useState, useContext, useEffect} from 'react';
+import React, {useState} from 'react';
 import DropDownMenu from "./DropDownMenu";
-import settingDropDown from "./SettingDropDown";
 import SettingDropDown from "./SettingDropDown";
 
 const NavItem = (props) => {
@@ -36,7 +35,7 @@ const NavItem = (props) => {
                 {props.icon}
             </a>
 
-            {open && <DropDownMenu/> }
+            {open && <DropDownMenu setOpen={setOpen} open={open}/> }
         </li>
     );
 };

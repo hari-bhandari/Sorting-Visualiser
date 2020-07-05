@@ -126,7 +126,12 @@ a {
 
 
 /* Dropdown Menu */
-
+.Button1{
+  position: absolute;
+  left: 550px;
+  top:35px;
+  height: 20px;
+}
 .dropdown {
   position: absolute;
   top: 58px;
@@ -231,6 +236,15 @@ body {
   float: left;
   margin-right: 20px;
   margin-bottom: 20px;
+}
+#animationSpeed{
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+
+
 }
 a#link {position: absolute; left: 20px; bottom: 10px; text-decoration: none; color: #555; font-weight: bold;}
 /*------------------------------------------------------*/
