@@ -11,7 +11,7 @@ export default (state, action) => {
             }
             const stateArray=[]
             for(let i=0;i<state.size;i++){
-                stateArray.push(randomIntFromIntervals(5,730))
+                stateArray.push(randomIntFromIntervals(1,80))
             }
             return{
                 ...state,

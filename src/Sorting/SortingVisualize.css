@@ -1,14 +1,12 @@
 
 .array-container {
-    position: absolute;
-    left: 300px;
+
     text-align: center;
     margin-top: 10px;
     /* top: 100px; */
 }
 
 .array-bar {
-    width: 2px;
     display: inline-block;
     border-top-left-radius:25%;
     border-top-right-radius:25%;
@@ -32,6 +30,7 @@
 @media (max-width: 992px) {
     .start{
         left: 0;
-        top: 20px;
+        top: 50px;
+        width: 1px;
     }
 }

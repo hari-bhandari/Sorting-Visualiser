@@ -36,17 +36,7 @@ const SotingVisualizer = () => {
         // eslint-disable-next-line
     },[])
     const WIDTH=()=>{
-        if (size < 13) {
-            return -0.038709677419355 * size + 65
-        } else if (size < 20) {
-            return -0.038709677419355 * size + 40
-        }
-        else if(size <= 40){
-            return -0.038709677419355*size + 20
-        }
-        else{
-            return -0.038709677419355*size + 13
-        }
+        return (75)/size
     }
     const mergeSort=()=>{
         const animations = getMergeSortAnimations(array);
@@ -67,7 +57,7 @@ const SotingVisualizer = () => {
                 setTimeout(() => {
                     const [barOneIdx, newHeight] = animations[i];
                     const barOneStyle = arrayBars[barOneIdx].style;
-                    barOneStyle.height = `${newHeight}px`;
+                    barOneStyle.height = `${newHeight}vh`;
                 }, i * animationSpeed);
             }
         }
@@ -96,7 +86,7 @@ const SotingVisualizer = () => {
                 }
                 const barStyle = arrayBars[barIndex].style;
                 setTimeout(() => {
-                    barStyle.height = `${newHeight}px`;
+                    barStyle.height = `${newHeight}vh`;
                 },i * animationSpeed);
             }
         }
@@ -128,7 +118,7 @@ const SotingVisualizer = () => {
                 }
                 const barStyle = arrayBars[barIndex].style;
                 setTimeout(() => {
-                    barStyle.height = `${newHeight}px`;
+                    barStyle.height = `${newHeight}vh`;
                 },i * animationSpeed);
             }
         }
@@ -154,7 +144,7 @@ const SotingVisualizer = () => {
                 const [temp, barIndex, newHeight] = animations[i];
                 const barStyle = arrayBars[barIndex].style;
                 setTimeout(() => {
-                    barStyle.height = `${newHeight}px`;
+                    barStyle.height = `${newHeight}vh`;
                 },i * animationSpeed);
             }
         }
@@ -179,7 +169,7 @@ const SotingVisualizer = () => {
                 const [temp, barIndex, newHeight] = animations[i];
                 const barStyle = arrayBars[barIndex].style;
                 setTimeout(() => {
-                    barStyle.height = `${newHeight}px`;
+                    barStyle.height = `${newHeight}vh`;
                 },i * animationSpeed);
             }
         }
@@ -192,7 +182,8 @@ const SotingVisualizer = () => {
             </div>
             <div className={"array-container"}>
                 {array.map((value, index) => (
-                    <div className={"array-bar"} key={index} style={{height: `${value}px`,width:`${WIDTH()}px`,margin:`0 ${WIDTH()/2}px`}}/>
+                    //,margin:`0 ${WIDTH()/6}%`
+                    <div className={"array-bar"} key={index} style={{height: `${value}vh`,width:`${WIDTH()}%`,margin:`0 ${WIDTH()/6}%`}} />
                 ))}
                 <br/>
             </div>
