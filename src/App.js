@@ -7,8 +7,6 @@ import AlgoState from "./context/Algorithms/algoState";
 import Navbar from "./Layout/NavBar/Navbar";
 import NavItem from "./Layout/NavBar/NavItem";
 import './App.css'
-
-
 function App() {
     return (
         <AlgoState>
@@ -27,6 +25,7 @@ function App() {
                 <div>
                     <SotingVisualizer/>
                 </div>
+
 
             </div>
         </AlgoState>
