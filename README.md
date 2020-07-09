@@ -1,5 +1,5 @@
 Sorting Visualiser visualises most of the common sorting algorithms.
-##Demo
+## Demo
 ### https://sort-visualiser.haribhandari.me/
 ## Available Scripts
 
