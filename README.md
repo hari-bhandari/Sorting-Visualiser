@@ -1,5 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+Sorting Visualiser visualises most of the common sorting algorithms.
+##Demo
+### https://sort-visualiser.haribhandari.me/
 ## Available Scripts
 
 In the project directory, you can run:
