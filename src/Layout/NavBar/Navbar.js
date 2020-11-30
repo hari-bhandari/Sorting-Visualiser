@@ -11,7 +11,7 @@ const Navbar = (props) => {
             <ul className="navbar-nav">
                 <div className="input-field">
                     <li>
-                        <div className={"array-box"}><input type="text" className={"array-box"}
+                        <div className="array-box-cont"><input type="text" className={"array-box"}
                                                             placeholder={"Please input your array with spaces in between Numbers"}
                                                             onChange={(e) => {
 

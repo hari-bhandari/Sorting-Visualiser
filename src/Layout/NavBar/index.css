@@ -28,19 +28,24 @@ ul {
   margin: 0;
   padding: 0;
 }
+.array-box-cont{
+  display: none;
+}
 .array-box{
   height: calc(var(--nav-size)*0.9);
   display: none;
   border:0;
   border-bottom:1px solid #555;
   background:transparent;
-  width:500px;
   padding:8px 0 5px 0;
   font-size:16px;
   color:#fff;
   position: absolute;
   left: 15px;
 
+}
+.array-box-cont{
+  width:30vw;
 }
 .array-box:focus{
   border:none;
@@ -132,7 +137,7 @@ a {
 /* Dropdown Menu */
 .Button1{
   position: absolute;
-  left: 550px;
+  left: 300px;
   top:35px;
   height: 20px;
 }
@@ -211,10 +216,24 @@ a {
   transform: translateX(110%);
   transition: all var(--speed) ease;
 }
-@media (min-width: 992px) {
+@media (min-width: 1403px) {
+  .array-box-cont{
+    display: block;
+  }
   .array-box{
     display: block;
   }
+  .selected{
+    flex: 0.2;
+  }
+  .input-field{
+    flex: 0.5;
+  }
+  .icons-buttons{
+    flex: 0.3;
+  }
+
+
 
 }
 @media (max-width: 992px) {
@@ -362,5 +381,13 @@ input[type="submit"]:hover,
   left: 750px;
   top:4px
 }
-
+.selected{
+  flex: 0.3;
+}
+.input-field{
+  flex: 0;
+}
+.icons-buttons{
+  flex: 0.7;
+}
 

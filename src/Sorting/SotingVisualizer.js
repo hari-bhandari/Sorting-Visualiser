@@ -12,14 +12,11 @@ import Navbar from "../Layout/NavBar/Navbar";
 import {ReactComponent as CaretIcon} from "../Layout/icons/caret.svg";
 import {ReactComponent as Cog} from "../Layout/icons/cog.svg";
 
-const SotingVisualizer = ({setFunction}) => {
+const SotingVisualizer = () => {
 
     const algoContext=useContext(AlgoContext)
     const {resetArray,array,size,currentlySelected,secondaryColour,primaryColour,animationSpeed}=algoContext
     // Change this value for the number of size (value) in the array.
-    const moveToParent=()=>{
-        setFunction(onStart)
-    }
     const  onStart=()=>{
         if(currentlySelected==='Bubble Sort'){
             bubbleSort()
@@ -187,8 +184,7 @@ const SotingVisualizer = ({setFunction}) => {
 
                 <Navbar>
                     <NavItem icon={<Start/>} play={true}/>
-
-                    <NavItem icon={<CaretIcon/>}></NavItem>
+                    <NavItem icon={<CaretIcon/>}/>
                     <NavItem icon={<Cog/>} type={'settings'}/>
                 </Navbar>
             </div>
