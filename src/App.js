@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import SotingVisualizer from "./Sorting/SotingVisualizer";
 //Importing context
 import {ReactComponent as Cog} from './Layout/icons/cog.svg';
@@ -11,20 +11,12 @@ function App() {
     return (
         <AlgoState>
             <div>
-                <div className={'NavBar-sticky'}>
 
-                <Navbar>
-
-                    <NavItem icon={<CaretIcon/>}></NavItem>
-                    <NavItem icon={<Cog/>} type={'settings'}>
-
-                    </NavItem>
-                </Navbar>
-                </div>
 
                 <div>
                     <SotingVisualizer/>
                 </div>
+                <button onClick={()=>{Function()}}>Start</button>
 
 
             </div>

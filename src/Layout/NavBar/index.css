@@ -68,6 +68,10 @@ a {
   max-width: 100%;
   height: 100%;
   display: flex;
+  justify-content: space-between;
+}
+.icons-buttons{
+  display: flex;
   justify-content: flex-end;
 }
 
@@ -101,10 +105,10 @@ a {
   transition: filter 300ms;
 }
 .icon-button-play {
-  --button-size: calc(var(--nav-size) * 0.5);
+  --button-size: calc(var(--nav-size) * 0.4);
   width: var(--button-size);
   height: var(--button-size);
-  background-color: #cd1987;
+  background-color: #ef0000;
   border-radius: 50%;
   padding: 5px;
   margin: 2px;

@@ -8,13 +8,19 @@ import{getSelectionSortAnimations} from '../SortingAlgorithms/SelectionSort'
 import './SortingVisualize.css'
 import {ReactComponent as Start} from "../Layout/icons/start.svg";
 import NavItem from "../Layout/NavBar/NavItem";
+import Navbar from "../Layout/NavBar/Navbar";
+import {ReactComponent as CaretIcon} from "../Layout/icons/caret.svg";
+import {ReactComponent as Cog} from "../Layout/icons/cog.svg";
 
-const SotingVisualizer = () => {
+const SotingVisualizer = ({setFunction}) => {
+
     const algoContext=useContext(AlgoContext)
     const {resetArray,array,size,currentlySelected,secondaryColour,primaryColour,animationSpeed}=algoContext
     // Change this value for the number of size (value) in the array.
-
-    const onStart=()=>{
+    const moveToParent=()=>{
+        setFunction(onStart)
+    }
+    const  onStart=()=>{
         if(currentlySelected==='Bubble Sort'){
             bubbleSort()
         }
@@ -177,8 +183,14 @@ const SotingVisualizer = () => {
 
     return (
         <Fragment>
-            <div className={'start'} onClick={onStart}>
-            <NavItem icon={<Start/>} play={true} type={'start'} />
+            <div className={'NavBar-sticky'}>
+
+                <Navbar>
+                    <NavItem icon={<Start/>} play={true}/>
+
+                    <NavItem icon={<CaretIcon/>}></NavItem>
+                    <NavItem icon={<Cog/>} type={'settings'}/>
+                </Navbar>
             </div>
             <div className={"array-container"}>
                 {array.map((value, index) => (

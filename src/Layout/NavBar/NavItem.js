@@ -14,7 +14,6 @@ const NavItem = (props) => {
 
 
 
-                {/*{open && <SettingDropDown/>}*/}
             </li>
         )
     }
