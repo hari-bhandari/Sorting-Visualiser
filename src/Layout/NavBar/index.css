@@ -110,11 +110,11 @@ a {
   transition: filter 300ms;
 }
 .icon-button-play {
-  --button-size: calc(var(--nav-size) * 0.4);
+  --button-size: calc(var(--nav-size) * 0.7);
   width: var(--button-size);
   height: var(--button-size);
   background-color: #ef0000;
-  border-radius: 50%;
+  border-radius: 45%;
   padding: 5px;
   margin: 2px;
   display: flex;
