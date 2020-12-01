@@ -1,6 +1,8 @@
 Sorting Visualiser visualises most of the common sorting algorithms.
 ## Demo
 ### https://sort-visualiser.haribhandari.me/
+![demo](https://raw.githubusercontent.com/hari-bhandari/Sorting-Visualiser/master/demo.png)
+
 ## Available Scripts
 
 In the project directory, you can run:
