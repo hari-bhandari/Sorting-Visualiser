@@ -7,7 +7,7 @@ const NavItem = (props) => {
     if (props.play){
         return (
             <li className="nav-item-play">
-                <a href="#" className="icon-button-play" onClick={() => setOpen(!open)}>
+                <a href="#" className="icon-button-play" onClick={() => props.onStart()}>
                     {props.icon}
                     <h1>Start</h1>
                 </a>

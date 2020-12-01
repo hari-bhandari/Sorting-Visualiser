@@ -183,7 +183,7 @@ const SotingVisualizer = () => {
             <div className={'NavBar-sticky'}>
 
                 <Navbar>
-                    <NavItem icon={<Start/>} play={true}/>
+                    <NavItem icon={<Start/>} play={true} onStart={onStart}/>
                     <NavItem icon={<CaretIcon/>}/>
                     <NavItem icon={<Cog/>} type={'settings'}/>
                 </Navbar>
